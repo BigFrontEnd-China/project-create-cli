@@ -1,5 +1,5 @@
 /*
- *@Description:
+ *@Description: tool.js
  *@Author: Jackson
  *@Date: 2021-08-10 10:35:19
  *@UpdateDate:
@@ -32,7 +32,11 @@ function createProject(branch, url, answers) {
     });
   });
 }
-
+/**
+ * 使用交互信息更新创建项目package.json
+ * @param {*} answers
+ * @returns
+ */
 function updatePackageJson(answers) {
   return new Promise((resolve, reject) => {
     const projectName = answers.projectName;
@@ -49,7 +53,11 @@ function updatePackageJson(answers) {
     return error;
   });
 }
-
+/**
+ * 删除已创建重复命名项目
+ * @param {*} dir
+ * @returns
+ */
 function deleteDir(dir) {
   return new Promise((resolve, reject) => {
     fse
@@ -62,7 +70,12 @@ function deleteDir(dir) {
       });
   });
 }
-
+/**
+ * 根据类型安装项目依赖
+ * @param {*} dir
+ * @param {*} npmInstall
+ * @returns
+ */
 function npmInstall(dir, npmInstall) {
   return new Promise((resolve, reject) => {
     let installCommand = '';
